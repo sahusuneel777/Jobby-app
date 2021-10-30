@@ -1,0 +1,34 @@
+.profile-details-container {
+  background-color: transparent;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.profile-loader-container {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-failure-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+.retry-btn {
+  background-color: #4f46e5;
+  color: #f1f5f9;
+  font-size: 12px;
+  line-height: 2;
+  font-family: Roboto;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+}
