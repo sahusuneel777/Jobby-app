@@ -1,0 +1,22 @@
+.types-of-employment {
+  margin: 0px;
+  padding-top: 0px;
+}
+.types-of-employment-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.types-of-salary-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.filter-heading {
+  font-size: 14px;
+  font-family: Roboto;
+  color: #f1f5f9;
+  line-height: 2;
+}

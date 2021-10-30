@@ -24,7 +24,7 @@ class JobItem extends Component {
           <div className="company-details">
             <img src={companyLogoUrl} className="logo-img" alt="company logo" />
             <div className="job-info">
-              <p className="job-title">{title}</p>
+              <h1 className="job-title">{title}</h1>
               <div className="rating-item">
                 <AiTwotoneStar className="star" />
                 <p className="rating-value">{rating}</p>
@@ -45,7 +45,7 @@ class JobItem extends Component {
             <p className="salary">{packagePerAnnum}</p>
           </div>
           <hr className="horizontal-line" />
-          <p className="description-heading">Description</p>
+          <h1 className="description-heading">Description</h1>
           <p className="description">{jobDescription}</p>
         </li>
       </Link>

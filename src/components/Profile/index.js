@@ -1,6 +1,6 @@
 import {Component} from 'react'
-import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
 import './index.css'
 
 const apiStatusConstants = {
@@ -13,12 +13,22 @@ const apiStatusConstants = {
 class Profile extends Component {
   state = {
     apiStatus: apiStatusConstants.initial,
-    profile: {},
+    profileData: {},
   }
 
   componentDidMount() {
     this.getProfileDetails()
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    const {profileData} = this.state
+    if (profileData !== nextState.profileData) {
+      return true
+    }
+    return false
+  }
+
+  retry = () => this.getProfileDetails()
 
   getProfileDetails = async () => {
     const jwtToken = Cookies.get('jwt_token')
@@ -41,7 +51,7 @@ class Profile extends Component {
         shortBio: fetchedData.profile_details.short_bio,
       }
       this.setState({
-        profile: updateFetchedData,
+        profileData: updateFetchedData,
         apiStatus: apiStatusConstants.success,
       })
     } else {
@@ -49,9 +59,18 @@ class Profile extends Component {
     }
   }
 
+  //   shouldshouldComponentUpdate(nextProps, nextState) {
+  //     const {profileData} = this.state
+  //     if (profileData !== nextState.profileData) {
+  //       return true
+  //     }
+  //     return false
+  //   }
+
   renderProfileSection = () => {
-    const {profile} = this.state
-    const {name, profileImageUrl, shortBio} = profile
+    const {profileData} = this.state
+    console.log(profileData)
+    const {name, profileImageUrl, shortBio} = profileData
     return (
       <div className="profile-container">
         <img src={profileImageUrl} className="avatar" alt="profile-avatar" />
@@ -63,13 +82,17 @@ class Profile extends Component {
 
   renderFailureView = () => (
     <div className="profile-failure-view">
-      <button type="button" className="retry-btn">
+      <button type="button" onClick={this.retry} className="retry-btn">
         Retry
       </button>
     </div>
   )
 
-  renderLoader = () => (
+  retry = () => {
+    this.getProfileDetails()
+  }
+
+  renderProfileLoader = () => (
     <div className="profile-loader-container" testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
@@ -83,7 +106,7 @@ class Profile extends Component {
       case apiStatusConstants.success:
         return this.renderProfileSection()
       case apiStatusConstants.inProgress:
-        return this.renderLoader()
+        return this.renderProfileLoader()
       default:
         return null
     }

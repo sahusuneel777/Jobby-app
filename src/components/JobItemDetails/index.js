@@ -118,9 +118,13 @@ class JobItemDetails extends Component {
       <div className="job-item-details-section">
         <div className="job-details-card">
           <div className="company-details">
-            <img src={companyLogoUrl} className="logo-img" alt="company logo" />
+            <img
+              src={companyLogoUrl}
+              className="logo-img"
+              alt="job details company logo"
+            />
             <div className="job-info">
-              <p className="job-title">{title}</p>
+              <h1 className="job-title">{title}</h1>
               <div className="rating-item">
                 <AiTwotoneStar className="star" />
                 <p className="rating-value">{rating}</p>
@@ -149,7 +153,7 @@ class JobItemDetails extends Component {
               rel="noreferrer"
               className="company-link"
             >
-              <p>visit</p>
+              <p>Visit</p>
               <HiExternalLink />
             </a>
           </div>
@@ -185,17 +189,21 @@ class JobItemDetails extends Component {
     )
   }
 
+  refresh = () => {
+    this.getJobDetails()
+  }
+
   renderFailureView = () => (
     <div className="failure-view-container">
       <img
         src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
         alt="failure view"
       />
-      <h1 className="failure-heading">Oops!Something Went Wrong</h1>
+      <h1 className="failure-heading">Oops! Something Went Wrong</h1>
       <p className="failure-description">
-        We cannot seen to find the page you are looking for.
+        We cannot seem to find the page you are looking for
       </p>
-      <button type="button" className="retry-btn">
+      <button type="button" onClick={this.refresh} className="retry-btn">
         Retry
       </button>
     </div>

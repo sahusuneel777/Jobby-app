@@ -15,7 +15,7 @@ class Home extends Component {
         <Header />
         <div className="home-container">
           <div className="banner-section">
-            <h1 className="heading">Find The Job Thats Fit Your Life</h1>
+            <h1 className="heading">Find The Job That Fits Your Life</h1>
             <p className="description">
               Millions of people are searching for jobs,salary
               information,company reviews.Find the job that fits your abilities

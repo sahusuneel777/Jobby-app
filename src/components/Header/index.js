@@ -27,14 +27,16 @@ class Header extends Component {
           <Link to="/jobs" className="nav-item-link">
             <li className="nav-item">Jobs</li>
           </Link>
+          <li>
+            <button
+              type="button"
+              onClick={this.onClickLogout}
+              className="logout-btn"
+            >
+              Logout
+            </button>
+          </li>
         </ul>
-        <button
-          type="button"
-          onClick={this.onClickLogout}
-          className="logout-btn"
-        >
-          Logout
-        </button>
       </div>
     )
   }

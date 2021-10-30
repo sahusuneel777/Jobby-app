@@ -38,27 +38,24 @@ const salaryRangesList = [
   },
 ]
 
-const FiltersGroup = () => (
-  <>
-    <ul className="types-of-employment">
-      {employmentTypesList.map(eachEmployeeType => (
-        <li className="employment-type-input-item">
-          <input type="checkbox" id={eachEmployeeType.employmentTypeId} />
-          <label
-            className="employee-type-label"
-            htmlFor={eachEmployeeType.employmentTypeId}
-            // onClick={this.onClickFilterEmploymentType}
-          >
-            {eachEmployeeType.label}
-          </label>
-        </li>
-      ))}
-    </ul>
-    <hr className="horizontal-line" />
-    <ul className="types-of-employment">
-      {salaryRangesList.map(eachSalaryRange => (
-        <li className="employment-type-input-item">
-          <input type="checkbox" id={eachSalaryRange.salaryRangeId} />
+const FiltersGroup = props => {
+  const renderTypesOfSalaryRange = () => {
+    const {FilterEmployeSalary} = props
+    return salaryRangesList.map(eachSalaryRange => {
+      const onClickFilterEmployeSalary = () => {
+        FilterEmployeSalary(eachSalaryRange.salaryRangeId)
+      }
+      return (
+        <li
+          className="employment-type-input-item"
+          onClick={onClickFilterEmployeSalary}
+          key={eachSalaryRange.salaryRangeId}
+        >
+          <input
+            type="radio"
+            name="salary"
+            id={eachSalaryRange.salaryRangeId}
+          />
           <label
             className="employee-type-label"
             htmlFor={eachSalaryRange.salaryRangeId}
@@ -66,9 +63,54 @@ const FiltersGroup = () => (
             {eachSalaryRange.label}
           </label>
         </li>
-      ))}
-    </ul>
-  </>
-)
+      )
+    })
+  }
+
+  const renderTypesOfEmployment = () => {
+    const {changeEmploymentType} = props
+    return employmentTypesList.map(eachEmployeeType => {
+      const onClickFilterEmploymentType = () =>
+        changeEmploymentType(eachEmployeeType.employmentTypeId)
+      return (
+        <li
+          className="employment-type-input-item"
+          onClick={onClickFilterEmploymentType}
+          key={eachEmployeeType.employmentTypeId}
+        >
+          <input type="checkbox" id={eachEmployeeType.employmentTypeId} />
+          <label
+            className="employee-type-label"
+            htmlFor={eachEmployeeType.employmentTypeId}
+          >
+            {eachEmployeeType.label}
+          </label>
+        </li>
+      )
+    })
+  }
+
+  const typesOfEmployment = () => (
+    <div className="types-of-employment-section">
+      <h1 className="filter-heading">Type of employment</h1>
+      <ul className="types-of-employment">{renderTypesOfEmployment()}</ul>
+      <hr className="horizontal-line" />
+    </div>
+  )
+
+  const typesOfSalaries = () => (
+    <div className="types-of-salary-section">
+      <h1 className="filter-heading"> Salary Range</h1>
+      <ul className="types-of-employment">{renderTypesOfSalaryRange()}</ul>
+    </div>
+  )
+
+  return (
+    <div className="filters-group-container">
+      {typesOfEmployment()}
+      {typesOfSalaries()}
+    </div>
+  )
+}
 
 export default FiltersGroup
