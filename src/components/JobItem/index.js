@@ -46,7 +46,7 @@ class JobItem extends Component {
           </div>
           <hr className="horizontal-line" />
           <h1 className="description-heading">Description</h1>
-          <p className="description">{jobDescription}</p>
+          <p className="detailed-description">{jobDescription}</p>
         </li>
       </Link>
     )

@@ -21,13 +21,15 @@ class Header extends Component {
           />
         </Link>
         <ul className="nav-card">
-          <Link to="/" className="nav-item-link">
-            <li className="nav-item">Home</li>
-          </Link>
-          <Link to="/jobs" className="nav-item-link">
-            <li className="nav-item">Jobs</li>
-          </Link>
-          <li>
+          <div className="controls">
+            <Link to="/" className="nav-item-link">
+              <li className="nav-item">Home</li>
+            </Link>
+            <Link to="/jobs" className="nav-item-link">
+              <li className="nav-item">Jobs</li>
+            </Link>
+          </div>
+          <li className="nav-item">
             <button
               type="button"
               onClick={this.onClickLogout}

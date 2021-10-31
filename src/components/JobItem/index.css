@@ -8,6 +8,13 @@
   list-style-type: none;
 }
 
+@media screen and (max-width: 768px) {
+  .job-item-card {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
 .logo-img {
   height: 40px;
   width: 40px;
@@ -50,7 +57,15 @@
 
 .additional-details {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@media screen and(min-width:768px) {
+  .additional-details {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .location-jobtype-container {
   display: flex;
@@ -83,6 +98,7 @@
   font-family: Roboto;
   margin-left: 8px;
 }
+
 .description-heading {
   font-size: 14px;
   color: #f1f5f9;
@@ -94,12 +110,18 @@
   width: 100%;
 }
 
-.description {
+.detailed-description {
   font-size: 12px;
   color: #f8fafc;
   font-family: Roboto;
 }
 
+@media screen and (max-width: 760px) {
+  .detailed-description {
+    font-size: 10px;
+    line-height: 2;
+  }
+}
 .job-item-link {
   text-decoration: none;
 }

@@ -79,17 +79,25 @@
   display: flex;
 }
 
+@media screen and (max-width: 768px) {
+  .life-at-company-section {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .life-at-company-description {
   color: #f1f5f9;
   line-height: 2;
   font-size: 14px;
   font-family: Roboto;
   margin-right: 10px;
+  order: 1;
 }
 
 @media screen and (max-width: 768px) {
   .life-at-company-description {
     font-size: 12px;
+    order: 2;
   }
 }
 
@@ -97,12 +105,28 @@
   height: 200px;
   width: 250px;
   border-radius: 10px;
+  order: 2;
 }
 
+@media screen and (max-width: 768px) {
+  .life-at-company-pic {
+    height: 150px;
+    width: 200px;
+    order: 1;
+  }
+}
 .similar-jobs-list-container {
   display: flex;
   padding: 0px;
 }
+
+@media screen and (max-width: 768px) {
+  .similar-jobs-list-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .failure-view-container {
   display: flex;
   flex-direction: column;

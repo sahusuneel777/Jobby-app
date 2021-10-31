@@ -14,6 +14,56 @@
   justify-content: center;
 }
 
+.profile-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-container {
+    height: 170px;
+    width: 130px;
+    margin-left: 0px;
+  }
+}
+
+.avatar {
+  padding-left: 10px;
+}
+@media screen and (max-width: 768px) {
+  .avatar {
+    height: 60px;
+  }
+}
+.name {
+  color: #4f46e5;
+  font-size: 16px;
+  color: #64748b;
+}
+@media screen and (max-width: 768px) {
+  .bio {
+    font-family: Roboto;
+    font-size: 14px;
+  }
+}
+
+.bio {
+  font-family: Roboto;
+  font-size: 14px;
+  color: #64748b;
+}
+@media screen and (max-width: 768px) {
+  .bio {
+    font-family: Roboto;
+    font-size: 12px;
+  }
+}
+
 .profile-failure-view {
   display: flex;
   justify-content: center;

@@ -56,6 +56,7 @@ class Jobs extends Component {
   getFilterAndJobs = async () => {
     const {employmentTypeList, minPackage, searchInputValue} = this.state
     const employmentType = employmentTypeList.join(',')
+    console.log(employmentType)
     const jobsApiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${minPackage}&search=${searchInputValue}`
     console.log(jobsApiUrl)
     const jwtToken = Cookies.get('jwt_token')
@@ -171,6 +172,23 @@ class Jobs extends Component {
         }),
         this.getFilterAndJobs,
       )
+      // } else {
+      //   const indexOfSelected = employmentTypeList.indexOf(employmentId)
+      //   const filteredActiveEmployment = employmentTypeList.splice(
+      //     indexOfSelected,
+      //     1,
+      //   )
+
+      //   this.setState(
+      //     {employmentTypeList: filteredActiveEmployment},
+      //     this.getFilterAndJobs,
+      //   )
+      // }
+    } else {
+      const newList = employmentTypeList.filter(
+        item => item.employmentId !== employmentId,
+      )
+      this.setState({employmentTypeList: newList}, this.getFilterAndJobs)
     }
   }
 
