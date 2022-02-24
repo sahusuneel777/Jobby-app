@@ -74,17 +74,17 @@ class JobItemDetails extends Component {
     }
     const response = await fetch(url, options)
     console.log(response)
-    let skillList = []
+    // let skillList = []
     if (response.ok === true) {
       const detailedData = await response.json()
       console.log(detailedData)
       const jobDetails = this.formattedJobDetailsData(detailedData)
-      console.log(jobDetails)
+      // console.log(jobDetails)
       const similarJobs = detailedData.similar_jobs.map(eachJob =>
         this.formatSimilarJobs(eachJob),
       )
       console.log(similarJobs)
-      skillList = detailedData.job_details.skills.map(eachSkill =>
+      const skillList = detailedData.job_details.skills.map(eachSkill =>
         this.formatSkillList(eachSkill),
       )
       console.log(skillList)
